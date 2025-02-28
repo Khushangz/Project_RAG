@@ -32,6 +32,10 @@ ollama_llm = OllamaLLM(model="deepseek-r1:7b")
 # Flask app initialization
 app = Flask(__name__)
 
+@app.route("/", methods=["GET"])
+def home():
+    return "Flask API is running! Use POST /search to query."
+
 @app.route("/search", methods=["POST"])
 def search():
     try:
